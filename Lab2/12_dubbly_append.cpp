@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+#include <algorithm>
+#include <numeric>
+using namespace std;
+struct Node
+{
+    struct Node *prev;
+    int data;
+    struct Node *next;
+};
+struct Node *first = NULL;
+
+void dubblyapp(int n)
+{
+    struct Node *temp = new Node;
+    struct Node *t = new Node;
+    if (first == NULL)
+    {
+        t->prev = NULL;
+        t->data = n;
+        t->next = NULL;
+        first = t;
+    }
+    else
+    {
+        t = first;
+        while (t->next != NULL)
+            t = t->next;
+        temp->data = n;
+        t->next = temp;
+        temp->prev = t;
+        temp->next = NULL;
+    }
+}
+
+void display()
+{
+
+    while (first != NULL)
+    {
+        cout << first->data << " ";
+        first = first->next;
+    }
+}
+int main()
+{
+    dubblyapp(4);
+    dubblyapp(14);
+    display();
+}
